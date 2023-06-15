@@ -30,7 +30,17 @@ arquivo `docker-compose.yml`.
 cd ..
 ```
 
-`docker compose up --build` ou `docker compose up --build -d` (para liberar o terminal)
+```shell
+docker compose up --build
+```
+
+ou
+
+```shell
+docker compose up --build -d
+```
+
+(para liberar o terminal)
 
 ### Executando a aplicação
 
