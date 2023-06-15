@@ -3,7 +3,6 @@
 ## Executando
 
 ### Criando a infraestrutura do Kafka
-
 Os recursos da infraestrutura:
 
 - Kafka Zookeeper
@@ -41,6 +40,20 @@ docker compose up --build -d
 ```
 
 (para liberar o terminal)
+
+### Acessando os recursos
+
+#### Schema Registry
+
+```html
+http://localhost:28081
+```
+
+#### Control Center
+
+```html
+http://localhost:29021
+```
 
 ### Executando a aplicação
 
