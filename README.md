@@ -22,7 +22,9 @@ A execução desse comando irá gerar os certificados necessários para configur
 Após a execução voltar para a pasta `./docker/` e subir a infraestrutura configrada com Docker Compose e descrita no
 arquivo `docker-compose.yml`.
 
-`cd ..`
+```shell
+cd ..
+```
 
 `docker compose up --build` ou `docker compose up --build -d` (para liberar o terminal)
 
