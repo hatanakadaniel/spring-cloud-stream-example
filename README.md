@@ -13,9 +13,13 @@ Os recursos da infraestrutura:
 
 Navegue até a pasta `./docker/ssl/` e execute o arquivo `create-certificate.sh`
 
-`cd docker/ssl/`
+```shell
+cd docker/ssl/
+```
 
-`./create-certificate.sh`
+```shell
+./create-certificate.sh
+```
 
 A execução desse comando irá gerar os certificados necessários para configurar o Kafka com SSL.
 
@@ -32,4 +36,6 @@ cd ..
 
 Execute pela IDE ou pelo terminal através do Gradle.
 
-`./gradlew bootRun`
+```shell
+./gradlew bootRun
+```
