@@ -62,3 +62,9 @@ Execute pela IDE ou pelo terminal através do Gradle.
 ```shell
 ./gradlew bootRun
 ```
+
+Para publicar um evento:
+
+```html
+http://localhost:8080
+```
