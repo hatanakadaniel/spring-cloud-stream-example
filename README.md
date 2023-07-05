@@ -1,7 +1,6 @@
 # Exemplo de aplicação com spring-cloud-stream
 
 <!-- TOC -->
-
 * [Exemplo de aplicação com spring-cloud-stream](#exemplo-de-aplicação-com-spring-cloud-stream)
   * [Executando](#executando)
     * [Criando a infraestrutura do Kafka](#criando-a-infraestrutura-do-kafka)
@@ -11,7 +10,6 @@
     * [Executando a aplicação](#executando-a-aplicação)
       * [Localmente](#localmente)
       * [Docker](#docker)
-
 <!-- TOC -->
 
 ## Executando
