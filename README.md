@@ -1,15 +1,14 @@
 # Exemplo de aplicação com spring-cloud-stream
 
 <!-- TOC -->
-* [Exemplo de aplicação com spring-cloud-stream](#exemplo-de-aplicação-com-spring-cloud-stream)
-  * [Executando](#executando)
-    * [Criando a infraestrutura do Kafka](#criando-a-infraestrutura-do-kafka)
-    * [Acessando os recursos](#acessando-os-recursos)
-      * [Schema Registry](#schema-registry)
-      * [Control Center](#control-center)
-    * [Executando a aplicação](#executando-a-aplicação)
-      * [Localmente](#localmente)
-      * [Docker](#docker)
+* [Executando](#executando)
+  * [Criando a infraestrutura do Kafka](#criando-a-infraestrutura-do-kafka)
+  * [Acessando os recursos](#acessando-os-recursos)
+    * [Schema Registry](#schema-registry)
+    * [Control Center](#control-center)
+  * [Executando a aplicação](#executando-a-aplicação)
+    * [Localmente](#localmente)
+    * [Docker](#docker)
 <!-- TOC -->
 
 ## Executando
