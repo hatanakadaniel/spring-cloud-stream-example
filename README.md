@@ -1,8 +1,23 @@
 # Exemplo de aplicação com spring-cloud-stream
 
+<!-- TOC -->
+
+* [Exemplo de aplicação com spring-cloud-stream](#exemplo-de-aplicação-com-spring-cloud-stream)
+  * [Executando](#executando)
+    * [Criando a infraestrutura do Kafka](#criando-a-infraestrutura-do-kafka)
+    * [Acessando os recursos](#acessando-os-recursos)
+      * [Schema Registry](#schema-registry)
+      * [Control Center](#control-center)
+    * [Executando a aplicação](#executando-a-aplicação)
+      * [Localmente](#localmente)
+      * [Docker](#docker)
+
+<!-- TOC -->
+
 ## Executando
 
 ### Criando a infraestrutura do Kafka
+
 Os recursos da infraestrutura:
 
 - Kafka Zookeeper
@@ -78,7 +93,7 @@ Recomendado utilizar como JDK Version Manager o projeto [Jabba](https://github.c
 jabba use openjdk@17
 ```
 
-Certifique de esteja usando JDK 17
+Verificar versão do JDK
 
 ```shell
 java -version
