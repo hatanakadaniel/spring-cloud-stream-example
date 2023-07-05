@@ -15,6 +15,6 @@ public class MessageResource {
 
     @GetMapping
     public void sendMessage() {
-        messageService.test();
+        messageService.sendMessage();
     }
 }

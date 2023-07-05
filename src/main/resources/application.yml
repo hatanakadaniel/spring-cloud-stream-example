@@ -3,19 +3,38 @@ spring:
     properties:
       schema:
         registry:
-          url: http://localhost:28081/
+          url: http://localhost:8081
   cloud:
+    function:
+      definition: createEventA;eventAtoEventB;receiveEventB;receiveEventA;
     stream:
-      # Configuração para todos os producers
+      # Configuração para todos os bindings
       default:
+        group: group-example
         producer:
           use-native-encoding: true
+        consumer:
+          use-native-decoding: true
       bindings:
         producer-out-0:
           destination: xpto
-          # Configuração individual por binding
-      #          producer:
-      #            use-native-encoding: false
+        createEventA-out-0:
+          destination: xpto
+        eventAtoEventB-in-0:
+          destination: xpto
+        eventAtoEventB-out-0:
+          destination: xpto2
+        receiveEventB-in-0:
+          destination: xpto2
+        receiveEventA-in-0:
+          destination: xpto
+          group: group-example-2
+      #        eventGenericAtoEventGenericB-in-0:
+      #          destination: xpto
+      #        eventGenericAtoEventGenericB-out-0:
+      #          destination: xpto2
+      #        receiveEventGenericB:
+      #          destination: xpto2
       kafka:
         binder:
           brokers:
@@ -42,17 +61,23 @@ spring:
               trustmanager:
                 algorithm: PKIX
               enabled:
-                protocols: TLSv1.3,TLSv1.3
+                protocols: TLSv1.2,TLSv1.3
         #Configuração individual por Binding
         #        bindings:
-        #          producer-out-0:
+        #          receiveEventA-in-0:
         #            producer:
         #              configuration:
         #                key:
         #                  serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-        #                  deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
         #                value:
         #                  serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+        #            consumer:
+        #              configuration:
+        ##                client:
+        ##                  id: group-example
+        #                key:
+        #                  deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        #                value:
         #                  deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
         # Configuração para todos os producers
         default:
@@ -60,8 +85,17 @@ spring:
             configuration:
               key:
                 serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-                deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
               value:
                 serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+          consumer:
+            configuration:
+              key:
                 deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-
+              value:
+                deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+              specific:
+                avro:
+                  reader: true
+  integration:
+    poller:
+      fixed-delay: 5000

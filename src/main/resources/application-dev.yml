@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:
+            - kafka:9093
+  kafka:
+    properties:
+      schema:
+        registry:
+          url: http://schema-registry:8081
+

@@ -6,21 +6,20 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     ports:
-      - 22181:2181
+      - 2181:2181
   kafka:
     image: confluentinc/cp-kafka:latest
     container_name: kafka
     depends_on:
       - zookeeper
     ports:
-      - 29092:29092
       - 29093:29093
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,SSL://kafka:9093,PLAINTEXT_HOST://localhost:29092,SSL_HOST://localhost:29093
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: SSL:SSL,SSL_HOST:SSL,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: SSL_HOST
+      KAFKA_INTER_BROKER_LISTENER_NAME: SSL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_SSL_KEYSTORE_FILENAME: localhost.keystore.pkcs12
       KAFKA_SSL_KEYSTORE_CREDENTIALS: localhost_keystore_creds
@@ -35,7 +34,7 @@ services:
     image: confluentinc/cp-schema-registry:latest
     container_name: schema-registry
     ports:
-      - 28081:8081
+      - 8081:8081
     environment:
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:9092
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
@@ -50,7 +49,7 @@ services:
       - kafka
       - schema-registry
     ports:
-      - 29021:9021
+      - 9021:9021
     environment:
       CONTROL_CENTER_BOOTSTRAP_SERVERS: kafka:9093
       CONTROL_CENTER_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -69,3 +68,14 @@ services:
       PORT: 9021
     volumes:
       - ./ssl:/etc/kafka/secrets
+  spring-cloud-stream-example:
+    image: spring-cloud-stream-example:latest
+    container_name: spring-cloud-stream-example
+    depends_on:
+      - zookeeper
+      - kafka
+      - schema-registry
+    ports:
+      - 8082:8080
+    environment:
+      SPRING_PROFILES_ACTIVE: dev

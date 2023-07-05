@@ -1,0 +1,45 @@
+{
+  "type": "record",
+  "name": "EventA",
+  "namespace": "br.com.hatanaka.avro",
+  "fields": [
+    {
+      "name": "active",
+      "type": [
+        "boolean"
+      ]
+    },
+    {
+      "name": "cod",
+      "type": [
+        "string"
+      ]
+    },
+    {
+      "name": "createdAt",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "name",
+      "type": [
+        "string"
+      ]
+    },
+    {
+      "name": "updatedAt",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "value",
+      "type": [
+        "long"
+      ]
+    }
+  ]
+}
