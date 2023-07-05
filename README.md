@@ -46,17 +46,18 @@ docker compose up --build -d
 #### Schema Registry
 
 ```html
-http://localhost:28081
+http://localhost:8081
 ```
 
 #### Control Center
 
 ```html
-http://localhost:29021
+http://localhost:9021
 ```
 
 ### Executando a aplicação
 
+#### Localmente
 Execute pela IDE ou pelo terminal através do Gradle.
 
 ```shell
@@ -67,4 +68,43 @@ Para publicar um evento:
 
 ```html
 http://localhost:8080
+```
+
+#### Docker
+
+Recomendado utilizar como JDK Version Manager o projeto [Jabba](https://github.com/Jabba-Team/jabba):
+
+```shell
+jabba use openjdk@17
+```
+
+Certifique de esteja usando JDK 17
+
+```shell
+java -version
+```
+
+Gerar artefato da aplicação
+
+```shell
+./gradlew clean build
+```
+
+Gerar imagem docker
+
+```shell
+docker build . -t spring-cloud-stream-example:latest
+```
+
+Descomentar o serviço `spring-cloud-stream-example` do arquivo [docker-compose.yml](docker/docker-compose.yml) e
+executar
+
+```shell
+docker compose up --build spring-cloud-stream-example
+```
+
+Para publicar um evento:
+
+```html
+http://localhost:8082
 ```

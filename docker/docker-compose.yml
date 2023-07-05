@@ -68,14 +68,14 @@ services:
       PORT: 9021
     volumes:
       - ./ssl:/etc/kafka/secrets
-  spring-cloud-stream-example:
-    image: spring-cloud-stream-example:latest
-    container_name: spring-cloud-stream-example
-    depends_on:
-      - zookeeper
-      - kafka
-      - schema-registry
-    ports:
-      - 8082:8080
-    environment:
-      SPRING_PROFILES_ACTIVE: dev
+#  spring-cloud-stream-example:
+#    image: spring-cloud-stream-example:latest
+#    container_name: spring-cloud-stream-example
+#    depends_on:
+#      - zookeeper
+#      - kafka
+#      - schema-registry
+#    ports:
+#      - 8082:8080
+#    environment:
+#      SPRING_PROFILES_ACTIVE: dev
